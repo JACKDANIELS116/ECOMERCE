@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block title %}Orden confirmada · Lumen Supply{% endblock %}
+{% block content %}
+<section class="success-page"><span class="success-mark">✓</span><p class="eyebrow">Transacción simulada / 2026</p><h1>Todo en<br><em>su lugar.</em></h1><p>Tu orden de <strong>${{ total|floatformat:2 }}</strong> fue registrada correctamente. No se realizó ningún cobro.</p><a class="button button-dark" href="{% url 'catalog' %}">Volver al catálogo <span>↗</span></a></section>
+{% endblock %}

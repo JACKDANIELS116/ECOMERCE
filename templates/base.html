@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Lumen Supply{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="{% url 'index' %}"><span class="brand-mark">L</span><span>Lumen<br><i>Supply</i></span></a>
+    <nav class="main-nav" aria-label="Navegación principal">
+        <a href="{% url 'catalog' %}">Catálogo</a>
+        <a href="{% url 'index' %}#origen">Nuestra selección</a>
+    </nav>
+    <a class="cart-link" href="{% url 'cart' %}">Carrito <span>{{ cart_count|default:0|stringformat:"02d" }}</span></a>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer class="site-footer"><span>LUMEN SUPPLY / CURATED ENERGY</span><span>Edición 01 · 2026</span></footer>
+</body>
+</html>

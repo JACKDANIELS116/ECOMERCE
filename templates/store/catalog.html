@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Catálogo · Lumen Supply{% endblock %}
+{% block content %}
+<section class="page-intro"><p class="eyebrow">Catálogo / 04 piezas</p><h1>Elige tu<br><em>próximo ritual.</em></h1><p>Una selección precisa de energizantes y tés para beber lento o moverse rápido.</p></section>
+<section class="catalog-list"><div class="catalog-tools"><span>Todos los productos</span><span>Precio en USD</span></div>{% for product_id, product in products %}<article class="catalog-row"><div class="catalog-thumb tone-{{ product.tone }}"><img src="{{ product.image }}" alt="{{ product.name }}"></div><div class="catalog-details"><p class="product-category">{{ product.category }}</p><h2>{{ product.name }}</h2><p>{{ product.description }}</p></div><strong class="catalog-price">${{ product.price|floatformat:2 }}</strong><form method="post" action="{% url 'add_to_cart' product_id %}">{% csrf_token %}<button class="button button-dark" type="submit">Añadir <span>+</span></button></form></article>{% endfor %}</section>
+{% endblock %}

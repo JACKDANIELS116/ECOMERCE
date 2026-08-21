@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Lumen Supply · Energía con carácter{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-copy"><p class="eyebrow">Bebidas para las horas que importan</p><h1>Una energía<br><em>fuera de serie.</em></h1><p class="hero-text">Energizantes de autor y tés exóticos elegidos para acompañar tu ritmo, sin ruido innecesario.</p><a class="button button-light" href="{% url 'catalog' %}">Explorar colección <span>↗</span></a></div>
+    <div class="hero-art" aria-label="Lata de bebida energética sobre una superficie color lima"><div class="sun"></div><div class="can"><small>LUMEN</small><strong>01</strong><i>energy tonic</i></div><span class="art-note">01 / CITRUS<br>BRIGHTNESS</span></div>
+</section>
+<section class="intro" id="origen"><p class="eyebrow">La colección</p><div><h2>Pequeños rituales.<br><em>Gran presencia.</em></h2><p>Buscamos sabores que despierten los sentidos y objetos que merezcan un lugar en tu mesa. Cada producto llega con una historia, un origen y una razón para estar aquí.</p></div></section>
+<section class="featured"><div class="section-heading"><div><p class="eyebrow">Selección de la semana</p><h2>Favoritos de Lumen</h2></div><a class="text-link" href="{% url 'catalog' %}">Ver todo <span>↗</span></a></div><div class="product-grid">{% for product in featured %}<article class="product-card"><div class="product-image tone-{{ product.tone }}"><img src="{{ product.image }}" alt="{{ product.name }}"></div><div class="product-info"><div><p class="product-category">{{ product.category }}</p><h3>{{ product.name }}</h3></div><strong>${{ product.price|floatformat:2 }}</strong></div></article>{% endfor %}</div></section>
+{% endblock %}
