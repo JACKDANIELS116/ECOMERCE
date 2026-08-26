@@ -68,7 +68,7 @@ def index(request):
 
 def catalog(request):
     _, _, count = _cart_items(request)
-    return render(request, "store/catalog.html", {"products": PRODUCTS.items(), "cart_count": count})
+    return render(request, "store/catalogo2.html", {"products": PRODUCTS.items(), "cart_count": count})
 
 
 def cart(request):
